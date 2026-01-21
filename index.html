@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riepilogo Offerte</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #000;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+        .button {
+            width: 90%;
+            max-width: 400px;
+            padding: 18px;
+            margin: 15px 0;
+            font-size: 1.6rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 12px;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+            display: inline-block;
+        }
+        .button:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .energia {
+            background-color: #e53935;
+        }
+        .telefonia {
+            background-color: #1e88e5;
+        }
+        /* Blocco password */
+        #contenuto {
+            display: none;
+        }
+        #login {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        input {
+            padding: 12px;
+            font-size: 1.2rem;
+            margin-top: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        button {
+            margin-top: 15px;
+            padding: 12px 20px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            background-color: #000;
+            color: #fff;
+        }
+        .errore {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BLOCCO PASSWORD -->
+    <div id="login">
+        <h1>RIEPILOGO OFFERTE</h1>
+        <h2>Inserisci la password</h2>
+        <input type="password" id="password" placeholder="Password">
+        <br>
+        <button onclick="verificaPassword()">Accedi</button>
+        <div id="errore" class="errore"></div>
+    </div>
+
+    <!-- CONTENUTO PRINCIPALE -->
+    <div id="contenuto">
+        <h1>RIEPILOGO OFFERTE</h1>
+
+        <a class="button energia" href="https://drive.google.com/file/d/1BikwEPqcb4Y0s5KngmN7ZzzlzdWt_qHf/view?usp=drive_link" target="_blank">
+            RIEPILOGO ENERGIA
+        </a>
+
+        <a class="button telefonia" href="https://drive.google.com/file/d/1HwqImK4-Pc9FTBwfJTt-RAJvQ75U_NVY/view?usp=drive_link" target="_blank">
+            RIEPILOGO TELEFONIA
+        </a>
+    </div>
+
+    <script>
+        function verificaPassword() {
+            const pwd = document.getElementById('password').value;
+            if (pwd === '1234') {
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('contenuto').style.display = 'flex';
+                document.getElementById('contenuto').style.flexDirection = 'column';
+                document.getElementById('contenuto').style.alignItems = 'center';
+            } else {
+                document.getElementById('errore').innerText = 'Password errata';
+            }
+        }
+    </script>
+
+</body>
+</html>
+
